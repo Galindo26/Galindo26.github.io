@@ -508,121 +508,58 @@ a {
 /* ==========================================================================
    Project Cards
    ========================================================================== */
-.project-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: 2.25rem;
-  box-shadow: var(--shadow-card);
-  transition: all var(--transition-normal);
-  display: flex;
-  flex-direction: column;
+/* ==========================================================================
+   Project Placeholder Section
+   ========================================================================== */
+.placeholder-container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.project-card:hover {
+.placeholder-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px dashed var(--border-color-hover);
+  border-radius: var(--radius-lg);
+  padding: 3.5rem 2.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-normal);
+}
+
+.placeholder-card:hover {
+  border-color: var(--accent-primary);
   background: var(--bg-card-hover);
-  border-color: var(--border-color-hover);
-  transform: translateY(-4px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
 }
 
-.project-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.2rem;
+.placeholder-icon {
+  font-size: 3.2rem;
+  margin-bottom: 1.25rem;
 }
 
-.project-category {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.badge {
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.25rem 0.7rem;
-  border-radius: var(--radius-full);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.badge-accent {
-  background: rgba(59, 130, 246, 0.15);
-  color: #60a5fa;
-  border: 1px solid rgba(59, 130, 246, 0.3);
-}
-
-.badge-research {
-  background: rgba(16, 185, 129, 0.15);
-  color: #34d399;
-  border: 1px solid rgba(16, 185, 129, 0.3);
-}
-
-.badge-academic {
-  background: rgba(245, 158, 11, 0.15);
-  color: #fbbf24;
-  border: 1px solid rgba(245, 158, 11, 0.3);
-}
-
-.badge-industry {
-  background: rgba(168, 85, 247, 0.15);
-  color: #c084fc;
-  border: 1px solid rgba(168, 85, 247, 0.3);
-}
-
-.project-title {
-  font-size: 1.35rem;
+.placeholder-title {
+  font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 0.9rem;
+  letter-spacing: -0.01em;
 }
 
-.project-desc {
+.placeholder-text {
   color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 620px;
+  margin: 0 auto 2.25rem;
 }
 
-.project-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.project-tech span {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--accent-primary);
-  background: rgba(59, 130, 246, 0.08);
-  padding: 0.2rem 0.6rem;
-  border-radius: var(--radius-sm);
-}
-
-.roadmap-notice {
-  margin-top: 3rem;
-  background: rgba(59, 130, 246, 0.06);
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  border-radius: var(--radius-md);
-  padding: 1.25rem 1.75rem;
+.placeholder-actions {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
-}
-
-.notice-icon {
-  font-size: 1.5rem;
-}
-
-.notice-text {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-}
-
-.notice-text strong {
-  color: var(--text-primary);
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 /* ==========================================================================

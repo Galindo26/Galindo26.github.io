@@ -1,15 +1,14 @@
 /**
  * Daniel Galindo Aranda — Portfolio Script
- * Theme toggle & interactive behaviors
+ * Theme toggle, smooth scroll & interactive behaviors
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Theme Toggle
+  // 1. Theme Toggle (Dark / Light)
   const themeToggle = document.getElementById('theme-toggle');
   const themeIcon = themeToggle ? themeToggle.querySelector('.theme-icon') : null;
   const htmlElement = document.documentElement;
 
-  // Retrieve saved theme or use dark as default
   const savedTheme = localStorage.getItem('theme') || 'dark';
   htmlElement.setAttribute('data-theme', savedTheme);
   updateThemeIcon(savedTheme);
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
   }
 
-  // Smooth scroll offset for fixed navbar
+  // 2. Smooth scroll offset for fixed navbar
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
@@ -39,7 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         e.preventDefault();
-        const navHeight = document.querySelector('.navbar').offsetHeight;
+        const navbar = document.querySelector('.navbar');
+        const navHeight = navbar ? navbar.offsetHeight : 0;
         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
         
         window.scrollTo({
@@ -50,10 +50,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Reveal elements on scroll using IntersectionObserver
+  // 3. Copy Email to Clipboard with UI feedback
+  const copyBtn = document.getElementById('copy-email-btn');
+  const copyText = document.getElementById('copy-text');
+
+  if (copyBtn && copyText) {
+    copyBtn.addEventListener('click', () => {
+      const email = copyBtn.getAttribute('data-email') || 'galindoaranda26@gmail.com';
+      navigator.clipboard.writeText(email).then(() => {
+        const originalText = copyText.textContent;
+        copyText.textContent = '¡Copiado!';
+        copyBtn.style.borderColor = 'var(--accent-secondary)';
+        copyBtn.style.color = 'var(--accent-secondary)';
+        
+        setTimeout(() => {
+          copyText.textContent = originalText;
+          copyBtn.style.borderColor = '';
+          copyBtn.style.color = '';
+        }, 2200);
+      }).catch(err => {
+        console.error('Error al copiar correo:', err);
+      });
+    });
+  }
+
+  // 4. Reveal elements on scroll using IntersectionObserver
   const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px -40px 0px'
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -65,14 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, observerOptions);
 
-  document.querySelectorAll('.card, .project-card, .stat-item, .timeline-item').forEach(el => {
+  document.querySelectorAll('.card, .placeholder-card, .stat-item, .timeline-item').forEach(el => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    el.style.transform = 'translateY(18px)';
+    el.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
     observer.observe(el);
   });
 
-  // Inject observer animation styles dynamically
+  // Dynamic animation style
   const style = document.createElement('style');
   style.textContent = `
     .visible {

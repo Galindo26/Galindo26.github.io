@@ -30,8 +30,8 @@ Galindo26.github.io/
 El sitio está diseñado de forma modular. Para añadir un nuevo proyecto cuando esté listo para publicarse:
 
 1. Abre `index.html`.
-2. Localiza la sección `<section id="projects">` dentro de `<div class="grid-2">`.
-3. Duplica un bloque `<div class="project-card">` y actualiza:
+2. Localiza la sección `<section id="projects">`.
+3. Sustituye el bloque `<div class="placeholder-container">` por tus tarjetas de proyecto o añade tarjetas dentro de la sección.
    - **Título y Categoría:** Nombre del proyecto y campo de aplicación.
    - **Badge de Estado:** Por ejemplo `<span class="badge badge-accent">Código Abierto</span>` o `En Desarrollo`.
    - **Descripción y Tecnologías:** Resumen del proyecto y etiquetas.

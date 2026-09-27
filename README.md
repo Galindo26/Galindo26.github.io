@@ -20,6 +20,8 @@ Galindo26.github.io/
 ├── index.html       # Estructura principal y contenido
 ├── style.css        # Sistema de diseño, variables y temas
 ├── script.js        # Lógica de interacción, tema y animaciones
+├── i18n.js          # Selector de idioma ES / EN y textos en inglés
+├── favicon.svg      # Icono del sitio
 └── README.md        # Documentación del proyecto (este archivo)
 ```
 
@@ -36,6 +38,7 @@ El sitio está diseñado de forma modular. Para añadir un nuevo proyecto cuando
    - **Badge de Estado:** Por ejemplo `<span class="badge badge-accent">Código Abierto</span>` o `En Desarrollo`.
    - **Descripción y Tecnologías:** Resumen del proyecto y etiquetas.
    - **Enlace:** Puedes convertir el título o añadir un botón `<a href="https://github.com/Galindo26/nombre-repo" class="btn btn-outline-sm">Ver Repositorio</a>`.
+   - **Traducción:** Escribe el texto en español en el HTML y marca cada elemento traducible con `data-i18n="clave"` (p. ej. `data-i18n="p1.title"`). Añade la misma clave con el texto en inglés al objeto `EN` de `i18n.js`. Los textos que no cambian entre idiomas (nombres de tecnologías) no necesitan clave.
 4. Haz `git commit` y `git push` a la rama `main`. GitHub Pages desplegará los cambios automáticamente en pocos segundos.
 
 ---

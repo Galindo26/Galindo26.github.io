@@ -5,8 +5,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Theme Toggle (Dark / Light)
-  const themeToggle = document.getElementById('theme-toggle');
-  const themeIcon = themeToggle ? themeToggle.querySelector('.theme-icon') : null;
+  const sunIcon = document.getElementById('theme-icon-sun');
+  const moonIcon = document.getElementById('theme-icon-moon');
   const htmlElement = document.documentElement;
 
   const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -25,8 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateThemeIcon(theme) {
-    if (!themeIcon) return;
-    themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
+    if (sunIcon && moonIcon) {
+      if (theme === 'dark') {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      } else {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      }
+    }
   }
 
   // 2. Smooth scroll offset for fixed navbar

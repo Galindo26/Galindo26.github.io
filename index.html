@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Galindo Aranda | Robótica, Mecatrónica e IA</title>
-  <meta name="description" content="Portfolio de Daniel Galindo Aranda. Ingeniería Electrónica, Robótica y Mecatrónica (UMA). Especializado en Real-to-Sim, Visión Computacional, ROS 2 e Inteligencia Artificial Autónoma.">
+  <title>Daniel Galindo Aranda | Ingeniería Robótica, Mecatrónica e IA</title>
+  <meta name="description" content="Portfolio profesional de Daniel Galindo Aranda. Ingeniería Electrónica, Robótica y Mecatrónica (Universidad de Málaga). Especializado en dinámica multicuerpo, Real-to-Sim, visión por computador y sistemas autónomos.">
   <meta name="author" content="Daniel Galindo Aranda">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,19 +17,32 @@
   <header class="navbar">
     <div class="nav-container">
       <a href="#hero" class="brand">
-        <span class="brand-badge">DG</span>
-        <span class="brand-name">Daniel Galindo</span>
+        <span class="brand-code">DG</span>
+        <span class="brand-name">Daniel Galindo Aranda</span>
       </a>
       <nav class="nav-links">
         <a href="#about">Sobre Mí</a>
-        <a href="#areas">Áreas</a>
+        <a href="#areas">Especialidades</a>
         <a href="#projects">Proyectos</a>
         <a href="#stack">Stack</a>
         <a href="#timeline">Trayectoria</a>
         <a href="#contact" class="btn btn-outline-sm">Contacto</a>
       </nav>
       <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
-        <span class="theme-icon">🌙</span>
+        <svg id="theme-icon-sun" class="theme-svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg id="theme-icon-moon" class="theme-svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
       </button>
     </div>
   </header>
@@ -37,23 +50,29 @@
   <!-- Hero Section -->
   <section id="hero" class="hero-section">
     <div class="hero-content">
-      <div class="status-pill">
-        <span class="status-dot"></span>
-        <span>Investigación en Robótica & IA · Málaga, España</span>
+      <div class="hero-kicker">
+        <span class="kicker-line"></span>
+        <span class="kicker-text">UNIVERSIDAD DE MÁLAGA · ESCUELA DE INGENIERÍAS INDUSTRIALES</span>
       </div>
+
       <h1 class="hero-title">
-        Ingeniería Robótica, <br>
-        <span class="gradient-text">Mecatrónica e IA Autónoma</span>
+        Daniel Galindo Aranda
       </h1>
-      <p class="hero-subtitle">
-        Graduando en <strong>Ingeniería Electrónica, Robótica y Mecatrónica</strong> (Universidad de Málaga). 
-        Enfocado en la intersección entre dinámica física multicuerpo, simulación <em>Real-to-Sim</em>, 
-        percepción espacial en tiempo real y arquitecturas de agentes autónomos.
+
+      <p class="hero-tagline">
+        Ingeniería Electrónica, Robótica y Mecatrónica
       </p>
+
+      <p class="hero-subtitle">
+        Graduando especializado en la intersección entre <strong>dinámica física multicuerpo</strong>, 
+        simulación <em>Real-to-Sim</em> de alta fidelidad, <strong>percepción por computador</strong> en tiempo real 
+        y arquitecturas de control para sistemas autónomos.
+      </p>
+
       <div class="hero-actions">
-        <a href="#areas" class="btn btn-primary">Explorar Áreas</a>
+        <a href="#areas" class="btn btn-primary">Especialidades Técnicas</a>
         <a href="https://github.com/Galindo26" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-          <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <svg class="btn-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
           </svg>
           GitHub
@@ -67,8 +86,8 @@
   <section id="about" class="section">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Perfil Profesional</span>
-        <h2 class="section-title">Sobre Mí & Enfoque de Ingeniería</h2>
+        <span class="section-tag">Perfil Técnico</span>
+        <h2 class="section-title">Sobre Mí & Principios de Ingeniería</h2>
       </div>
       <div class="about-grid">
         <div class="about-card">
@@ -78,14 +97,14 @@
             </p>
           </div>
           <p class="about-description">
-            Mi formación técnica aúna el rigor matemático y físico de la <strong>mecatrónica tradicional</strong> 
-            (control en el espacio de estados, cinemática y dinámica, actuadores, electrónica) con las herramientas más 
-            avanzadas de <strong>inteligencia artificial y visión computacional</strong>.
+            Mi perfil integra el rigor físico y matemático de la <strong>mecatrónica</strong> 
+            (dinámica de sistemas, control en el espacio de estados, cinemática articular e instrumentación electrónica) 
+            con las técnicas de <strong>percepción artificial y modelos de decisión autónomos</strong>.
           </p>
           <p class="about-description">
-            Cuento con experiencia en ingeniería aplicada, digitalización e instrumentación sensorial. 
-            Actualmente dirijo mis esfuerzos hacia el modelado dinámico de alta fidelidad, la teleoperación reactiva 
-            y los sistemas de agentes soberanos.
+            Cuento con formación aplicada en automatización de flujos técnicos, normalización de datos e 
+            instrumentación sensorial. Mi trabajo se centra en el desarrollo de gemelos digitales reproducibles, 
+            teleoperación reactiva e interacción hombre-máquina (HRI) basada en visión computacional.
           </p>
         </div>
         <div class="stats-card">
@@ -99,11 +118,11 @@
           </div>
           <div class="stat-item">
             <span class="stat-number">Real-to-Sim</span>
-            <span class="stat-label">Gemelos dinámicos sobre OpenUSD e Isaac Sim</span>
+            <span class="stat-label">Gemelos dinámicos sobre OpenUSD y simulación física</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number">Autonomous AI</span>
-            <span class="stat-label">Modelos autónomos y arquitecturas de agentes</span>
+            <span class="stat-number">Percepción 3D</span>
+            <span class="stat-label">Tracking espacial e interacción visual en tiempo real</span>
           </div>
         </div>
       </div>
@@ -115,41 +134,61 @@
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Disciplinas</span>
-        <h2 class="section-title">Áreas de Especialización</h2>
+        <h2 class="section-title">Especialidades Técnicas</h2>
       </div>
       <div class="grid-4">
+        <!-- Area 1 -->
         <div class="card area-card">
-          <div class="card-icon">🦾</div>
+          <div class="card-icon-box">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              <circle cx="12" cy="16" r="1"></circle>
+            </svg>
+          </div>
           <h3 class="card-title">Robótica y Control</h3>
           <p class="card-text">
-            Modelado cinemático y dinámico de manipuladores y robots móviles. Control en lazo cerrado, 
-            cinemática inversa, integración en <strong>ROS 2</strong> y balance energético de actuadores.
+            Modelado cinemático y dinámico de manipuladores y robots móviles. Control articular en lazo cerrado, 
+            cinemática inversa, integración en <strong>ROS 2</strong> y balance de potencia en actuadores.
           </p>
           <div class="tags">
             <span class="tag">ROS 2</span>
             <span class="tag">Nav2</span>
             <span class="tag">Multibody</span>
-            <span class="tag">Actuadores</span>
+            <span class="tag">Cinemática</span>
           </div>
         </div>
 
+        <!-- Area 2 -->
         <div class="card area-card">
-          <div class="card-icon">🔬</div>
-          <h3 class="card-title">Gemelos Digitales (Real-to-Sim)</h3>
+          <div class="card-icon-box">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <h3 class="card-title">Gemelos Digitales & Real-to-Sim</h3>
           <p class="card-text">
             Identificación paramétrica de sistemas (SysID), calibración de simuladores físicos y compensación 
             híbrida de discrepancias dinámicas sobre <strong>OpenUSD</strong> y <strong>NVIDIA Isaac Sim</strong>.
           </p>
           <div class="tags">
-            <span class="tag">Isaac Sim</span>
             <span class="tag">OpenUSD</span>
+            <span class="tag">Isaac Sim</span>
             <span class="tag">SysID</span>
             <span class="tag">PyTorch</span>
           </div>
         </div>
 
+        <!-- Area 3 -->
         <div class="card area-card">
-          <div class="card-icon">👁️</div>
+          <div class="card-icon-box">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </div>
           <h3 class="card-title">Visión y Percepción Espacial</h3>
           <p class="card-text">
             Captura y estimación 3D de posturas articulares en tiempo real con <strong>MediaPipe</strong> y 
@@ -158,56 +197,78 @@
           <div class="tags">
             <span class="tag">MediaPipe</span>
             <span class="tag">OpenCV</span>
-            <span class="tag">HRI</span>
             <span class="tag">3D Tracking</span>
+            <span class="tag">HRI</span>
           </div>
         </div>
 
+        <!-- Area 4 -->
         <div class="card area-card">
-          <div class="card-icon">🧠</div>
-          <h3 class="card-title">IA Autónoma y Agentes</h3>
+          <div class="card-icon-box">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+              <rect x="9" y="9" width="6" height="6"></rect>
+              <line x1="9" y1="1" x2="9" y2="4"></line>
+              <line x1="15" y1="1" x2="15" y2="4"></line>
+              <line x1="9" y1="20" x2="9" y2="23"></line>
+              <line x1="15" y1="20" x2="15" y2="23"></line>
+              <line x1="20" y1="9" x2="23" y2="9"></line>
+              <line x1="20" y1="14" x2="23" y2="14"></line>
+              <line x1="1" y1="9" x2="4" y2="9"></line>
+              <line x1="1" y1="14" x2="4" y2="14"></line>
+            </svg>
+          </div>
+          <h3 class="card-title">Sistemas Autónomos & Control</h3>
           <p class="card-text">
-            Diseño e implementación de sistemas agénticos con orquestación de herramientas, 
-            ejecución silenciosa, síntesis de voz y modelos de lenguaje locales.
+            Diseño e implementación de arquitecturas de software para control inteligente, 
+            orquestación de herramientas locales, modelos de decisión y automatización embebida.
           </p>
           <div class="tags">
-            <span class="tag">Local LLMs</span>
-            <span class="tag">Agentic Core</span>
             <span class="tag">Python</span>
+            <span class="tag">C++</span>
             <span class="tag">FastAPI</span>
+            <span class="tag">Embebidos</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section (Roadmap / Bases) -->
+  <!-- Projects Section -->
   <section id="projects" class="section">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Portafolio</span>
+        <span class="section-tag">Desarrollo</span>
         <h2 class="section-title">Proyectos & Código Abierto</h2>
         <p class="section-subtitle">
-          Base modular para futuros lanzamientos. Los repositorios públicos y demostradores se irán 
-          enlazando conforme se alcancen las fases de validación y publicación técnica.
+          Estructura en preparación para futuras publicaciones técnicas. Los repositorios de código abierto 
+          se irán incorporando conforme se consoliden sus hitos de validación.
         </p>
       </div>
 
       <div class="placeholder-container">
         <div class="placeholder-card">
-          <div class="placeholder-icon">🚀</div>
-          <h3 class="placeholder-title">Proyectos en Preparación</h3>
+          <div class="placeholder-icon-box">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              <line x1="12" y1="11" x2="12" y2="17"></line>
+              <line x1="9" y1="14" x2="15" y2="14"></line>
+            </svg>
+          </div>
+          <h3 class="placeholder-title">Módulos en Fase de Desarrollo</h3>
           <p class="placeholder-text">
-            Actualmente estoy desarrollando y consolidando paquetes de software en robótica, percepción y sistemas autónomos. 
-            Este espacio se actualizará de forma periódica con enlaces directos a los repositorios de GitHub, 
-            documentación técnica y cuadernos reproducibles.
+            Actualmente estructurando y validando librerías de control, interfaces de percepción y herramientas de 
+            simulación. Los repositorios públicos con documentación técnica y guías de reproducción se publicarán directamente aquí.
           </p>
           <div class="placeholder-actions">
             <a href="https://github.com/Galindo26" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg class="btn-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
               Seguir en GitHub
             </a>
             <a href="#contact" class="btn btn-outline">
-              Consultar Información
+              Contacto Técnico
             </a>
           </div>
         </div>
@@ -250,7 +311,7 @@
         </div>
 
         <div class="stack-group">
-          <h4 class="stack-group-title">IA, Visión & Datos</h4>
+          <h4 class="stack-group-title">Visión, IA & Control</h4>
           <div class="stack-pills">
             <span class="pill">PyTorch</span>
             <span class="pill">OpenCV</span>
@@ -262,7 +323,7 @@
         </div>
 
         <div class="stack-group">
-          <h4 class="stack-group-title">Infraestructura & Herramientas</h4>
+          <h4 class="stack-group-title">Sistemas & Despliegue</h4>
           <div class="stack-pills">
             <span class="pill">Linux (Ubuntu)</span>
             <span class="pill">Git / GitHub</span>
@@ -279,8 +340,8 @@
   <section id="timeline" class="section">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Evolución</span>
-        <h2 class="section-title">Formación y Trayectoria</h2>
+        <span class="section-tag">Trayectoria</span>
+        <h2 class="section-title">Formación y Experiencia</h2>
       </div>
       <div class="timeline">
         <div class="timeline-item">
@@ -326,31 +387,31 @@
   <footer id="contact" class="footer">
     <div class="container footer-content">
       <div class="footer-cta">
-        <h2 class="footer-title">¿Interesado en colaborar o discutir un proyecto?</h2>
+        <h2 class="footer-title">Contacto & Colaboración</h2>
         <p class="footer-subtitle">
-          Disponible para conversaciones técnicas sobre robótica, simulación, visión e inteligencia artificial.
+          Disponible para consultas técnicas, proyectos de investigación o intercambio profesional en robótica y automatización.
         </p>
         <div class="footer-buttons">
           <a href="mailto:galindoaranda26@gmail.com" class="btn btn-primary">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <svg class="btn-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
               <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
             </svg>
             Enviar Correo
           </a>
-          <button id="copy-email-btn" class="btn btn-secondary" data-email="galindoaranda26@gmail.com">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <button id="copy-email-btn" class="btn btn-secondary" data-email="galindoaranda26@gmail.com" type="button">
+            <svg class="btn-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
               <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
             </svg>
             <span id="copy-text">Copiar Email</span>
           </button>
           <a href="https://github.com/Galindo26" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-            GitHub
+            Perfil de GitHub
           </a>
         </div>
       </div>
       <div class="footer-bottom">
         <p>© 2026 Daniel Galindo Aranda · Málaga, España</p>
-        <p class="footer-subtext">Sitio web personal alojado en GitHub Pages</p>
+        <p class="footer-subtext">Sitio web personal y técnico alojado en GitHub Pages</p>
       </div>
     </div>
   </footer>

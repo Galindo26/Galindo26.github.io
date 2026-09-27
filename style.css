@@ -36,6 +36,7 @@
   --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.2);
   --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.35);
   --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --card-spotlight: rgba(47, 129, 247, 0.08);
 }
 
 [data-theme="light"] {
@@ -55,6 +56,7 @@
   --accent-hover: #0860ca;
   --accent-soft: rgba(9, 105, 218, 0.08);
   --accent-secondary: #1a7f37;
+  --card-spotlight: rgba(9, 105, 218, 0.04);
 
   --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
@@ -93,6 +95,28 @@ a {
   max-width: 1140px;
   margin: 0 auto;
   padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   Ambient Interactive Canvas (Network & Particles)
+   ========================================================================== */
+.ambient-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.9;
+  transition: opacity 0.5s ease;
+}
+
+.hero-section,
+.section,
+.footer {
+  position: relative;
+  z-index: 1;
 }
 
 /* ==========================================================================
@@ -452,6 +476,37 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.25rem;
+}
+
+/* ==========================================================================
+   Card Spotlight & Modern Hover Effect
+   ========================================================================== */
+.card, .stat-item, .about-card, .placeholder-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before, .stat-item::before, .about-card::before, .placeholder-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(380px circle at var(--mouse-x, -600px) var(--mouse-y, -600px), var(--card-spotlight), transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.card:hover::before, .stat-item:hover::before, .about-card:hover::before, .placeholder-card:hover::before {
+  opacity: 1;
+}
+
+.card > *, .stat-item > *, .about-card > *, .placeholder-card > * {
+  position: relative;
+  z-index: 2;
 }
 
 .card {

@@ -1127,16 +1127,6 @@ main:focus {
   transform: translateY(0);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .status-dot {
-    animation: none;
-  }
-}
-
 /* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */

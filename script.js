@@ -10,7 +10,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const htmlElement = document.documentElement;
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // All motion is always on, regardless of prefers-reduced-motion (deliberate choice)
 
   // UI strings come from i18n.js; Spanish fallbacks keep the page working without it
   const FALLBACK_UI = {
@@ -82,7 +82,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ==========================================================================
   // 3. Smooth Scroll for Fixed Navbar
+  // Animated in JS: browsers drop native smooth scrolling when the OS disables animations
   // ==========================================================================
+  let scrollAnimId = null;
+
+  function cancelScrollAnimation() {
+    if (scrollAnimId !== null) {
+      cancelAnimationFrame(scrollAnimId);
+      scrollAnimId = null;
+    }
+  }
+
+  function animateScrollTo(targetY) {
+    cancelScrollAnimation();
+    const maxY = document.documentElement.scrollHeight - window.innerHeight;
+    const endY = Math.max(0, Math.min(maxY, targetY));
+    const startY = window.pageYOffset;
+    const distance = endY - startY;
+    const duration = Math.min(900, Math.max(400, Math.abs(distance) * 0.25));
+    const ease = p => (p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2);
+    const t0 = performance.now();
+
+    function step(now) {
+      const p = Math.min(1, (now - t0) / duration);
+      window.scrollTo({ top: startY + distance * ease(p), behavior: 'instant' });
+      scrollAnimId = p < 1 ? requestAnimationFrame(step) : null;
+    }
+    scrollAnimId = requestAnimationFrame(step);
+  }
+
+  // The user's own scrolling takes over from an animation in progress
+  ['wheel', 'touchstart', 'keydown'].forEach(type => {
+    window.addEventListener(type, cancelScrollAnimation, { passive: true });
+  });
+
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
@@ -95,10 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const navHeight = navbar ? navbar.offsetHeight : 0;
         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
 
-        window.scrollTo({
-          top: targetPosition,
-          behavior: prefersReducedMotion ? 'auto' : 'smooth'
-        });
+        animateScrollTo(targetPosition);
 
         // Move keyboard focus along with the scroll (skip link, focusable targets)
         if (targetElement.hasAttribute('tabindex')) {
@@ -188,21 +218,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // 7. Scroll Reveal Animations (IntersectionObserver)
   // Uses the `translate` property so card hover `transform` keeps working.
   // ==========================================================================
-  if (!prefersReducedMotion) {
-    const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.card, .placeholder-card, .stat-item, .timeline-item, .stack-group').forEach(el => {
-      el.classList.add('reveal');
-      revealObserver.observe(el);
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
     });
-  }
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.card, .placeholder-card, .stat-item, .timeline-item, .stack-group').forEach(el => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  });
 
   // ==========================================================================
   // 8. Shared Palette (read from CSS custom properties)
@@ -664,7 +692,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ==========================================================================
   // 12. Render Loop (paused when the tab is hidden)
-  // The canvases always animate, even with prefers-reduced-motion (deliberate choice)
   // ==========================================================================
   let rafId = null;
 

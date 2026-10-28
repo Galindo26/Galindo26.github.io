@@ -77,7 +77,7 @@
     't4.desc': 'Development of LLM-based assistants for the technical audit of regulatory inspection files. Development of internal web tools for innovation project management and the automation of documentation and workflows.',
     't5.date': 'Oct 2026 - Present',
     't5.title': 'Member of the Microbotics team · University of Málaga',
-    't5.desc': 'Robotics team at the University of Málaga. Design and programming of robots controlled with ESP32 microcontrollers: embedded firmware, sensor reading and motor control.',
+    't5.desc': 'Robotics team at the University of Málaga. Design and programming of robots controlled with ESP32 microcontrollers.',
     't3.date': 'Next Milestone (2027)',
     't3.title': "Master's Degree in Robotics and Artificial Intelligence",
     't3.desc': 'Planned postgraduate path oriented towards research in intelligent robotics, physical interaction and learning of complex dynamics.',

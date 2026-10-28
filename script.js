@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function spawnPulse(e) {
-    if (prefersReducedMotion || !ctx) return;
+    if (!ctx) return;
     if (e.target instanceof Element && e.target.closest('a, button, input, textarea, select')) return;
     pulses.push({ x: e.clientX, y: e.clientY, r: 0, life: 1 });
     if (pulses.length > 6) pulses.shift();
@@ -663,7 +663,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 12. Render Loop (paused when the tab is hidden; static when motion is reduced)
+  // 12. Render Loop (paused when the tab is hidden)
+  // The canvases always animate, even with prefers-reduced-motion (deliberate choice)
   // ==========================================================================
   let rafId = null;
 
@@ -680,20 +681,8 @@ document.addEventListener('DOMContentLoaded', () => {
     rafId = requestAnimationFrame(frame);
   }
 
-  function renderStatic() {
-    if (ctx) drawNetwork();
-    if (armReady()) {
-      stepArm(0, true);
-      drawArm();
-    }
-  }
-
   function start() {
-    if (prefersReducedMotion) {
-      renderStatic();
-    } else if (rafId === null) {
-      rafId = requestAnimationFrame(frame);
-    }
+    if (rafId === null) rafId = requestAnimationFrame(frame);
   }
 
   function stop() {
@@ -708,10 +697,7 @@ document.addEventListener('DOMContentLoaded', () => {
     else start();
   });
 
-  new MutationObserver(() => {
-    readPalette();
-    if (prefersReducedMotion) renderStatic();
-  }).observe(htmlElement, { attributes: true, attributeFilter: ['data-theme'] });
+  new MutationObserver(readPalette).observe(htmlElement, { attributes: true, attributeFilter: ['data-theme'] });
 
   let resizeTimeout = null;
   window.addEventListener('resize', () => {
@@ -719,15 +705,12 @@ document.addEventListener('DOMContentLoaded', () => {
     resizeTimeout = setTimeout(() => {
       resizeNetwork();
       resizeArm();
-      if (prefersReducedMotion) renderStatic();
     }, 150);
   });
 
   resizeNetwork();
   resizeArm();
-  if (!prefersReducedMotion) {
-    // Start the arm already on its idle pose instead of sweeping in from vertical
-    if (armReady()) stepArm(performance.now(), true);
-  }
+  // Start the arm already on its idle pose instead of sweeping in from vertical
+  if (armReady()) stepArm(performance.now(), true);
   start();
 });
